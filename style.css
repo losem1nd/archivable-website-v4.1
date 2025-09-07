@@ -1,3 +1,4 @@
+/* BASE STYLES */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -15,8 +16,23 @@ body {
   font-weight: bold;
   color: #fff;
   border-bottom: 1px solid #444;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
+.tab-dropdown {
+  display: none;
+  font-size: 14px;
+  padding: 5px 10px;
+  border-radius: 6px;
+  border: none;
+  background-color: #2a2a2a;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* MAIN CONTAINER */
 .main-container {
   display: flex;
   flex-grow: 1;
@@ -55,10 +71,10 @@ body {
   flex: 1;
   padding: 30px;
   min-width: 0;
-  padding: 30px;
   overflow-x: auto;
 }
 
+/* TAB CONTENT */
 .tab-content.hidden {
   display: none;
 }
@@ -71,7 +87,6 @@ body {
   border-radius: 4px;
   color: white;
   cursor: pointer;
-  /* transition: background-color 0.2s ease-in-out; */
 }
 
 .content-item:hover {
@@ -136,11 +151,11 @@ body {
 
 .update-label-container {
   display: flex;
-  gap: 8px;          /* space between badges */
-  position: absolute; /* so container stays top-right */
+  gap: 8px;
+  position: absolute; /* top-right for badges */
   top: 10px;
   right: 10px;
-  flex-wrap: wrap;   /* wrap badges if too many */
+  flex-wrap: wrap;
 }
 
 .update-label {
@@ -151,7 +166,7 @@ body {
   border-radius: 6px;
 }
 
-/* different badge colors */
+/* Badge colors */
 .update-label.red { background-color: #ff4444; }
 .update-label.blue { background-color: #4444ff; }
 .update-label.blue-2 { background-color: #2828ff; }
@@ -160,31 +175,19 @@ body {
 
 /* LARGE DESKTOP */
 @media (min-width: 1200px) {
-  .sidebar {
-    width: 200px;
-  }
-
-  .content {
-    padding: 30px;
-  }
+  .sidebar { width: 200px; }
+  .content { padding: 30px; }
 }
 
 /* LAPTOP / DESKTOP */
 @media (max-width: 1199px) and (min-width: 992px) {
-  .sidebar {
-    width: 180px;
-  }
-
-  .content {
-    padding: 25px;
-  }
+  .sidebar { width: 180px; }
+  .content { padding: 25px; }
 }
 
 /* TABLET LANDSCAPE */
 @media (max-width: 991px) and (min-width: 768px) {
-  .main-container {
-    flex-direction: column;
-  }
+  .main-container { flex-direction: column; }
 
   .sidebar {
     width: 100%;
@@ -207,9 +210,7 @@ body {
     border-bottom: 2px solid #333;
   }
 
-  .content {
-    padding: 20px;
-  }
+  .content { padding: 20px; }
 
   .update-label-container {
     position: relative;
@@ -232,54 +233,36 @@ body {
     padding: 8px 0;
   }
 
-  .content {
-    padding: 15px;
+  .content { padding: 15px; }
+
+  .update-label { font-size: 11px; padding: 2px 6px; }
+
+  .content-item-3 { padding: 15px; }
+
+  .content-item-3 .text-2-header { font-size: 18px; }
+
+  .content-item-3 .text-2-para { font-size: 14px; }
+
+  .tab-dropdown {
+    display: block;
   }
 
-  .update-label {
-    font-size: 11px;
-    padding: 2px 6px;
-  }
-
-  .content-item-3 {
-    padding: 15px;
-  }
-
-  .content-item-3 .text-2-header {
-    font-size: 18px;
-  }
-
-  .content-item-3 .text-2-para {
-    font-size: 14px;
-  }
+  .sidebar { display: none; }
 }
 
 /* SMALL PHONE */
 @media (max-width: 575px) {
-  .header {
-    font-size: 20px;
-    padding: 10px 15px;
-  }
+  .header { font-size: 20px; padding: 10px 15px; }
 
-  .sidebar a {
-    font-size: 13px;
-    padding: 6px 0;
-  }
+  .sidebar a { font-size: 13px; padding: 6px 0; }
 
-  .content {
-    padding: 10px;
-  }
+  .content { padding: 10px; }
 
-  .content-item-3 .text-2-header {
-    font-size: 16px;
-  }
+  .content-item-3 .text-2-header { font-size: 16px; }
 
-  .content-item-3 .text-2-para {
-    font-size: 13px;
-  }
+  .content-item-3 .text-2-para { font-size: 13px; }
 
-  .update-label {
-    font-size: 10px;
-    padding: 2px 5px;
-  }
+  .update-label { font-size: 10px; padding: 2px 5px; }
+
+  .tab-dropdown { font-size: 13px; padding: 3px 6px; }
 }
