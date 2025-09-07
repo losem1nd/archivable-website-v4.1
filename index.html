@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    
+    <title>Archivable Website</title>
+    <style></style>
+</head>
+<body>
+
+    <!-- Header section -->
+    <div class="header">
+        Archivable Website v4.1
+    </div>
+
+    <!-- home conatiner -->
+    <div class="main-container">
+        <!-- sid side bar navigation -->
+        <div class="sidebar" id="sidebar">
+            <a class="nav-link active" data-tab="home">Home</a>
+            <a class="nav-link" data-tab="resources">Resources</a>
+            <a class="nav-link" data-tab="about">About</a>
+            <a class="nav-link " data-tab="update">Update</a>
+        </div>
+
+        <!-- Main content area -->
+        <div class="content">
+            <!-- home -->
+            <div id="home" class="tab-content">
+              <div class="text">I made this website for fun so... enjoy!</div>
+            </div>
+            <!--材料标签页 -->
+            <div id="resources" class="tab-content hidden">
+                <div class="content-item">
+                    <div class="box"></div>
+                    <div class="text">Something will be replaced by this text</div>
+                </div>
+                <div class="content-item">
+                    <div class="box"></div>
+                    <div class="text">Something will be replaced by this text</div>
+                </div>
+            </div>
+            <div id="about" class="tab-content hidden">
+                <div class="content-item-2">
+                    <div class="text">Archivable Website v4</div>
+                    <hr>
+                    <div class="text">This is an early developer beta preview that released by developer. Current version will be written on the top-left corner. This website may not be stable cause developer are still testing the website.</div>
+                    <br><br><br>
+                    <hr>
+                    <div class="text-2">About (Info):</div>
+                    <div class="text">Build By: AK (more details go to main website)</div>
+                    <div class="text">Template by: LefiWEB</div>
+                    <div class="text">Assist Created by: LefiWEB v104, LefiEngine v98-2, LefiWEB-Preset</div>
+                    <div class="text">Designed Assistant: LefiWEB-Decorate v2, LefiEngie v98-2</div>
+                    <div class="text">Public at: GitHub</div>
+                    <div class="text">Web Version: v0.1</div>
+                </div>
+            </div>
+            <div id="update" class="tab-content hidden">
+              <div class="content-item-3 update39">
+                  <div class="update-label-container">
+                        <div class="update-label orange">PINNED</div>
+                    </div>
+                    <div class="text-2-header">Future Feature</div>
+                    <hr>
+                    <div class="text-2-para">- Responsive Design (For now only support PC view)</div>
+                    <div class="text-2-para">- Switch between Dark Mode & White Mode</div>
+                    <div class="text-2-para">- Website source code release</div>
+                    <div class="text-2-para">- Some tutorial release</div>
+                    <div class="text-2-para">- Website Redesign (confirmed, estimate v7 will be done)</div>
+                    <hr>
+                    <div class="text-2-para alert">These are only planning feature, doesn't mean it will come out</div>
+                </div>
+                <br><br> 
+                <div class="content-item-3 update39">
+                  <div class="update-label-container">
+                        <div class="update-label red">UPDATE</div>
+                        <div class="update-label blue">BETA</div>
+                        <div class="update-label blue-2">PREVIEW</div>
+                        <div class="update-label green">NEW</div>
+                    </div>
+                    <div class="text-2-header">Archivable Website v4.1</div>
+                    <hr>
+                    <div class="text-2-para">- Responsive design now in testing (Phase 1)</div>
+                    <hr>
+                </div>
+                <br><br>
+                <div class="content-item-3 update39">
+                  <div class="update-label-container">
+                        <div class="update-label red">UPDATE</div>
+                    </div>
+                    <div class="text-2-header">Archivable Website v4</div>
+                    <hr>
+                    <div class="text-2-para">- Added this update tab</div>
+                    <div class="text-2-para">- Changed </div>
+                    <hr>
+                </div>
+                <br><br>
+                <div class="content-item-3 update39">
+                    <div class="update-label-container">
+                        <div class="update-label red">UPDATE</div>
+                    </div>
+                    <div class="text-2-header">Archivable Website v3.9</div>
+                    <hr>
+                    <div class="text-2-para">- Added more tab</div>
+                    <div class="text-2-para">- Optimized website for better performance</div>
+                </div>
+                <br><br>
+                <div class="content-item-2">
+                    <div class="text-info alert important">There is no update record before v3.9 update</div>
+                </div>
+            </div>
+        </div>
+    </div><script src="script.js"></script>
+    <script>
+        ['keydown', 'keypress', 'keyup'].forEach(evt => {
+          document.addEventListener(evt, function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+          }, true);
+        });
+
+        document.addEventListener('contextmenu', function (e) {
+          e.preventDefault();
+        });
+
+        document.addEventListener('copy', function (e) {
+          e.preventDefault();
+        });
+
+        document.addEventListener('paste', function (e) {
+          e.preventDefault();
+        });
+
+        document.addEventListener('selectstart', function (e) {
+          e.preventDefault();
+        });
+
+        document.addEventListener('touchstart', function (e) {
+          e.preventDefault();
+        }, { passive: false });
+
+        document.addEventListener('touchmove', function (e) {
+          e.preventDefault();
+        }, { passive: false });
+
+        document.addEventListener('gesturestart', function (e) {
+          e.preventDefault();
+        });
+
+        document.addEventListener('gesturechange', function (e) {
+          e.preventDefault();
+        });
+
+        document.addEventListener('gestureend', function (e) {
+          e.preventDefault();
+        });
+
+        const navLinks = document.querySelectorAll('.nav-link');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                const tabToShow = this.getAttribute('data-tab');
+
+                navLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+
+                tabContents.forEach(content => {
+                    if (content.id === tabToShow) {
+                        content.classList.remove('hidden');
+                    } else {
+                        content.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
