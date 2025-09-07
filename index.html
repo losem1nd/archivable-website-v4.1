@@ -3,35 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    
     <title>Archivable Website</title>
-    <style></style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Header section -->
+    <!-- Header with dropdown for mobile/tablet -->
     <div class="header">
         Archivable Website v4.1
+        <select class="tab-dropdown" id="tabDropdown">
+            <option value="home">Home</option>
+            <option value="resources">Resources</option>
+            <option value="about">About</option>
+            <option value="update">Update</option>
+        </select>
     </div>
 
-    <!-- home conatiner -->
+    <!-- main container -->
     <div class="main-container">
-        <!-- sid side bar navigation -->
+        <!-- sidebar navigation (desktop only) -->
         <div class="sidebar" id="sidebar">
             <a class="nav-link active" data-tab="home">Home</a>
             <a class="nav-link" data-tab="resources">Resources</a>
             <a class="nav-link" data-tab="about">About</a>
-            <a class="nav-link " data-tab="update">Update</a>
+            <a class="nav-link" data-tab="update">Update</a>
         </div>
 
-        <!-- Main content area -->
+        <!-- main content -->
         <div class="content">
-            <!-- home -->
+            <!-- HOME -->
             <div id="home" class="tab-content">
-              <div class="text">I made this website for fun so... enjoy!</div>
+                <div class="text">I made this website for fun so... enjoy!</div>
             </div>
-            <!--材料标签页 -->
+
+            <!-- RESOURCES -->
             <div id="resources" class="tab-content hidden">
                 <div class="content-item">
                     <div class="box"></div>
@@ -42,12 +47,13 @@
                     <div class="text">Something will be replaced by this text</div>
                 </div>
             </div>
+
+            <!-- ABOUT -->
             <div id="about" class="tab-content hidden">
                 <div class="content-item-2">
                     <div class="text">Archivable Website v4</div>
                     <hr>
                     <div class="text">This is an early developer beta preview that released by developer. Current version will be written on the top-left corner. This website may not be stable cause developer are still testing the website.</div>
-                    <br><br><br>
                     <hr>
                     <div class="text-2">About (Info):</div>
                     <div class="text">Build By: AK (more details go to main website)</div>
@@ -58,9 +64,11 @@
                     <div class="text">Web Version: v0.1</div>
                 </div>
             </div>
+
+            <!-- UPDATE -->
             <div id="update" class="tab-content hidden">
-              <div class="content-item-3 update39">
-                  <div class="update-label-container">
+                <div class="content-item-3 update39">
+                    <div class="update-label-container">
                         <div class="update-label orange">PINNED</div>
                     </div>
                     <div class="text-2-header">Future Feature</div>
@@ -73,9 +81,9 @@
                     <hr>
                     <div class="text-2-para alert">These are only planning feature, doesn't mean it will come out</div>
                 </div>
-                <br><br> 
+                <br><br>
                 <div class="content-item-3 update39">
-                  <div class="update-label-container">
+                    <div class="update-label-container">
                         <div class="update-label red">UPDATE</div>
                         <div class="update-label blue">BETA</div>
                         <div class="update-label blue-2">PREVIEW</div>
@@ -88,7 +96,7 @@
                 </div>
                 <br><br>
                 <div class="content-item-3 update39">
-                  <div class="update-label-container">
+                    <div class="update-label-container">
                         <div class="update-label red">UPDATE</div>
                     </div>
                     <div class="text-2-header">Archivable Website v4</div>
@@ -113,70 +121,30 @@
                 </div>
             </div>
         </div>
-    </div><script src="script.js"></script>
+    </div>
+
+    <!-- SCRIPT: tab switching -->
     <script>
-        ['keydown', 'keypress', 'keyup'].forEach(evt => {
-          document.addEventListener(evt, function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-          }, true);
-        });
-
-        document.addEventListener('contextmenu', function (e) {
-          e.preventDefault();
-        });
-
-        document.addEventListener('copy', function (e) {
-          e.preventDefault();
-        });
-
-        document.addEventListener('paste', function (e) {
-          e.preventDefault();
-        });
-
-        document.addEventListener('selectstart', function (e) {
-          e.preventDefault();
-        });
-
-        document.addEventListener('touchstart', function (e) {
-          e.preventDefault();
-        }, { passive: false });
-
-        document.addEventListener('touchmove', function (e) {
-          e.preventDefault();
-        }, { passive: false });
-
-        document.addEventListener('gesturestart', function (e) {
-          e.preventDefault();
-        });
-
-        document.addEventListener('gesturechange', function (e) {
-          e.preventDefault();
-        });
-
-        document.addEventListener('gestureend', function (e) {
-          e.preventDefault();
-        });
-
         const navLinks = document.querySelectorAll('.nav-link');
         const tabContents = document.querySelectorAll('.tab-content');
+        const tabDropdown = document.getElementById('tabDropdown');
+
+        function showTab(tabId) {
+            tabContents.forEach(tc => tc.classList.add('hidden'));
+            document.getElementById(tabId).classList.remove('hidden');
+
+            navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('data-tab') === tabId));
+            if(tabDropdown) tabDropdown.value = tabId;
+        }
 
         navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                const tabToShow = this.getAttribute('data-tab');
-
-                navLinks.forEach(l => l.classList.remove('active'));
-                this.classList.add('active');
-
-                tabContents.forEach(content => {
-                    if (content.id === tabToShow) {
-                        content.classList.remove('hidden');
-                    } else {
-                        content.classList.add('hidden');
-                    }
-                });
-            });
+            link.addEventListener('click', () => showTab(link.getAttribute('data-tab')));
         });
+
+        if(tabDropdown) {
+            tabDropdown.addEventListener('change', () => showTab(tabDropdown.value));
+        }
     </script>
+
 </body>
 </html>
