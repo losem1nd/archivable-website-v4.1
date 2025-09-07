@@ -144,6 +144,24 @@
         if(tabDropdown) {
             tabDropdown.addEventListener('change', () => showTab(tabDropdown.value));
         }
+
+        const mobileDropdown = document.getElementById('mobileTabDropdown');
+
+        mobileDropdown.addEventListener('change', function() {
+            const tabToShow = this.value;
+
+            navLinks.forEach(l => l.classList.remove('active'));
+            document.querySelector(`.nav-link[data-tab="${tabToShow}"]`).classList.add('active');
+
+            tabContents.forEach(content => {
+                if (content.id === tabToShow) {
+                    content.classList.remove('hidden');
+                } else {
+                    content.classList.add('hidden');
+                }
+            });
+        });
+
     </script>
 
 </body>
