@@ -1,6 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+/* CURSOR */
+* {
+  cursor: url('cursor-black-theme-transparent.png'), auto !important;
+}
+
+a, button, input, textarea, select {
+  cursor: url('cursor-black-theme-transparent.png'), auto !important;
+}
+
 /* BASE STYLES */
 body {
-  font-family: Arial, sans-serif;
+  font-family: Open Sans, serif;
   margin: 0;
   padding: 0;
   background-color: #121212;
@@ -75,9 +85,7 @@ body {
 }
 
 /* TAB CONTENT */
-.tab-content.hidden {
-  display: none;
-}
+.tab-content.hidden { display: none; }
 
 .content-item {
   display: flex;
@@ -89,9 +97,7 @@ body {
   cursor: pointer;
 }
 
-.content-item:hover {
-  background-color: #2a2a2a;
-}
+.content-item:hover { background-color: #2a2a2a; }
 
 .content-item .box {
   width: 20px;
@@ -101,38 +107,29 @@ body {
   border-radius: 4px;
 }
 
-.content-item .text {
-  color: white;
-  font-size: 16px;
-}
-
-.text {
-  color: white;
-}
-
-.content-item-2 .text-2 {
-  color: white;
-  font-size: 20px;
-  font-weight: bold;
-}
-
+.content-item .text,
+.text,
+.content-item-2 .text-2,
 .content-item-3 .text-2-header {
   color: white;
+}
+
+.content-item .text { font-size: 16px; }
+
+.content-item-2 .text-2,
+.content-item-3 .text-2-header {
   font-size: 20px;
   font-weight: bold;
 }
 
 .content-item-3 {
-  position: relative; /* parent for absolute labels */
+  position: relative;
   padding: 20px;
   background-color: #1c1c1c;
   border-radius: 8px;
 }
 
-.content-item-3 .text-2-para {
-  color: white;
-  font-size: 15px;
-}
+.content-item-3 .text-2-para { font-size: 15px; }
 
 .update39 {
   border: 2.5px solid #ddd;
@@ -140,19 +137,17 @@ body {
   color: white;
 }
 
-.text-info {
+.text-info,
+.alert {
   color: red;
 }
 
-.alert {
-  color: red;
-  font-weight: bold;
-}
+.alert { font-weight: bold; }
 
 .update-label-container {
   display: flex;
   gap: 8px;
-  position: absolute; /* top-right for badges */
+  position: absolute;
   top: 10px;
   right: 10px;
   flex-wrap: wrap;
@@ -206,9 +201,7 @@ body {
     padding: 10px 0;
   }
 
-  .sidebar a.active {
-    border-bottom: 2px solid #333;
-  }
+  .sidebar a.active { border-bottom: 2px solid #333; }
 
   .content { padding: 20px; }
 
@@ -216,163 +209,47 @@ body {
     position: relative;
     top: auto;
     right: auto;
-    flex-wrap: wrap;
     margin-bottom: 10px;
   }
 }
 
 /* TABLET / LARGE PHONE */
 @media (max-width: 767px) and (min-width: 576px) {
-  .header {
-    font-size: 22px;
-    padding: 15px 20px;
-  }
-
-  .sidebar a {
-    font-size: 14px;
-    padding: 8px 0;
-  }
-
-  .content { padding: 15px; }
-
-  .update-label { font-size: 11px; padding: 2px 6px; }
-
-  .content-item-3 { padding: 15px; }
-
-  .content-item-3 .text-2-header { font-size: 18px; }
-
-  .content-item-3 .text-2-para { font-size: 14px; }
-
-  .tab-dropdown {
-    display: block;
-  }
-
+  .header { font-size: 20px; padding: 12px 15px; }
+  .sidebar a { font-size: 13px; padding: 7px 0; }
+  .content { padding: 12px; }
+  .update-label { font-size: 10px; padding: 2px 5px; }
+  .content-item-3 { padding: 12px; }
+  .content-item-3 .text-2-header { font-size: 16px; }
+  .content-item-3 .text-2-para { font-size: 12px; }
+  .tab-dropdown { display: block; }
   .sidebar { display: none; }
 }
 
 /* SMALL PHONE */
 @media (max-width: 575px) {
-  .header { font-size: 20px; padding: 10px 15px; }
-
-  .sidebar a { font-size: 13px; padding: 6px 0; }
-
-  .content { padding: 10px; }
-
-  .content-item-3 .text-2-header { font-size: 16px; }
-
-  .content-item-3 .text-2-para { font-size: 13px; }
-
-  .update-label { font-size: 10px; padding: 2px 5px; }
-
-  .tab-dropdown { font-size: 13px; padding: 3px 6px; }
+  .header { font-size: 18px; padding: 8px 10px; }
+  .sidebar { display: none; }
+  .tab-dropdown { display: block; font-size: 12px; padding: 5px; }
+  .content { padding: 8px; }
+  .content-item-3 .text-2-header { font-size: 14px; }
+  .content-item-3 .text-2-para { font-size: 11px; }
+  .update-label { font-size: 9px; padding: 2px 4px; }
 }
 
-/* SMALL PHONE */
-@media (max-width: 575px) {
-  .header {
-    font-size: 20px;
-    padding: 10px 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .sidebar {
-    display: none; /* hide sidebar on small phones */
-  }
-
-  .tab-dropdown {
-    display: block; /* show dropdown */
-    font-size: 13px;
-    padding: 5px;
-  }
-
-  .content {
-    padding: 10px;
-  }
-
-  .content-item-3 .text-2-header {
-    font-size: 16px;
-  }
-
-  .content-item-3 .text-2-para {
-    font-size: 13px;
-  }
-
-  .update-label {
-    font-size: 10px;
-    padding: 2px 5px;
-  }
+.item {
+  color: white;
 }
 
-/* TABLET / LARGE PHONE */
-@media (max-width: 767px) and (min-width: 576px) {
-  .header {
-    font-size: 20px; /* smaller header */
-    padding: 12px 15px;
-  }
-
-  .sidebar a {
-    font-size: 13px; /* smaller nav links */
-    padding: 7px 0;
-  }
-
-  .content {
-    padding: 12px;
-  }
-
-  .update-label {
-    font-size: 10px;
-    padding: 2px 5px;
-  }
-
-  .content-item-3 {
-    padding: 12px;
-  }
-
-  .content-item-3 .text-2-header {
-    font-size: 16px;
-  }
-
-  .content-item-3 .text-2-para {
-    font-size: 12px;
-  }
+#searchBox {
+  padding: 5px;
+  width: 200px;
 }
 
-/* SMALL PHONE */
-@media (max-width: 575px) {
-  .header {
-    font-size: 18px; 
-    padding: 8px 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+.text-a {
+  color: white;
+}
 
-  .sidebar {
-    display: none; /* hide desktop sidebar */
-  }
-
-  .tab-dropdown {
-    display: block; /* show dropdown for small screen */
-    font-size: 12px;
-    padding: 5px;
-  }
-
-  .content {
-    padding: 8px;
-  }
-
-  .content-item-3 .text-2-header {
-    font-size: 14px;
-  }
-
-  .content-item-3 .text-2-para {
-    font-size: 11px;
-  }
-
-  .update-label {
-    font-size: 9px;
-    padding: 2px 4px;
-  }
+.text-a:hover {
+  text-decoration: underline;
 }
